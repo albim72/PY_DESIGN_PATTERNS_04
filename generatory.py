@@ -39,3 +39,15 @@ for i in wznowienia(12,8):
     print("*"*40)
     print(type(i))
     print(f"zwrócono wartość: {i}")
+
+#przykład 3
+def genret():
+    for i in range(72):
+        if i==34:
+            print("przerwamy")
+            return
+        else:
+            yield i
+
+for t in genret():
+    print(t)
