@@ -17,7 +17,7 @@ class SednoOdpowiedzi(type):
     def __init__(cls,clsname,bases,attrs):
 
         if required:
-            if clsname == "Kopernik":
+            if attrs.get('n'):
                 cls.odpowiedz = odpowiedz_new
             else:
                 cls.odpowiedz = odpowiedz
@@ -36,12 +36,16 @@ class SwTomasz(metaclass=SednoOdpowiedzi):
     pass
 
 class Kopernik(metaclass=SednoOdpowiedzi):
-    pass
+    n = True
+
+class Einstein(metaclass=SednoOdpowiedzi):
+    n = True
 
 fil1 = Arystoteles()
 fil2 = Platon()
 fil3 = SwTomasz()
 fil4 = Kopernik()
+fil5 = Einstein()
 
 print(f"Filozof {fil1.__class__.__name__} mówi: {fil1.odpowiedz()}")
 print(f"Filozof {fil2.__class__.__name__} mówi: {fil2.odpowiedz()}")
@@ -49,3 +53,4 @@ print(f"Filozof {fil3.__class__.__name__} mówi: {fil3.odpowiedz()}")
 #odpowiedź Kopernika -> Nie! Ziemia jest Elipsoidą...
 #zachowaj takie elementy: nazwa metody -> odpowiedz, budowa na metaklasie SednoOdpowiedzi
 print(f"Filozof {fil4.__class__.__name__} mówi: {fil4.odpowiedz()}")
+print(f"Filozof {fil5.__class__.__name__} mówi: {fil5.odpowiedz()}")
