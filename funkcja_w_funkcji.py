@@ -61,3 +61,23 @@ print(rejestracja(1)(677))
 print(rejestracja(0)())
 print(rejestracja(45)())
 
+
+#przykład 4
+def startstop(funkcja):
+    def wrapper(*args):
+        print(f"uruchomienie nowej funkcji - {funkcja.__name__}")
+        funkcja(*args)
+        print("zakończenie działania funkcji...")
+    return wrapper
+
+def zawijanie(czego):
+    print(f'zawijanie {czego} w sreberka...')
+
+zw = startstop(zawijanie)
+zw("czekoladek")
+
+@startstop
+def dmuchanie(czego):
+    print(f'dmuchanie {czego} na torcie urodzinowym')
+
+dmuchanie("świeczek")
