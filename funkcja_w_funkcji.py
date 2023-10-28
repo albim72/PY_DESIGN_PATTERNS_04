@@ -39,3 +39,25 @@ print(mlist)
 
 dl = [[2,3],[4,5]]
 print(dl[1][1])
+
+#przykład 3
+
+def rejestracja(oplata):
+    def lista_zawodnikow(nrzawodnika):
+        return f'jesteś zawodnikiem nr startowy {nrzawodnika}'
+    def brak():
+        return 'brak opłaty, uzupełnij w ciągu 3 dni!'
+    def error():
+        return "błąd kodu wpłaty..."
+
+    if oplata==1:
+        return lista_zawodnikow
+    elif oplata==0:
+        return brak
+    else:
+        return error
+
+print(rejestracja(1)(677))
+print(rejestracja(0)())
+print(rejestracja(45)())
+
