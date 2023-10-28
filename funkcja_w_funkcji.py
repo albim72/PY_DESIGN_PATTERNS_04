@@ -34,3 +34,8 @@ print(parzysta)
 cube = list(map(lambda x:x**3,liczby))
 print(cube)
 
+mlist = [i**2 for i in liczby]
+print(mlist)
+
+dl = [[2,3],[4,5]]
+print(dl[1][1])
