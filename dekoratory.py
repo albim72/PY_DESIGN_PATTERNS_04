@@ -39,3 +39,17 @@ def info(i):
     print(f'ważna informacja: {i}')
 
 info(f"kod 545435345")
+
+def repeater(n):
+    def wrapper(funkcja):
+        def inner(*args):
+            for i in range(n):
+                funkcja(*args)
+        return inner
+    return wrapper
+
+@repeater(n=7)
+def komunikat(k,n):
+    print(f'nr: {k} -> info: {n}')
+
+komunikat(45,"blabla")
