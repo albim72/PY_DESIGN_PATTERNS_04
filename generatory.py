@@ -51,3 +51,34 @@ def genret():
 
 for t in genret():
     print(t)
+
+#przykład 4
+def complexgen():
+    x=0
+    while True:
+        print("x-print")
+        y = yield x
+        z = yield 2*x
+        print("x-print2")
+        if y is None:
+            x = x+1
+            #z = x+20
+        else:
+            x=y
+            #z = 2*y
+
+g = complexgen()
+
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+print(g.send(121))
+print(next(g))
+print(next(g))
+print(next(g))
+
+
+# for j in complexgen():
+#     print(j)
